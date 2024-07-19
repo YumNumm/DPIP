@@ -33,7 +33,7 @@ class NotifyPage extends StatelessWidget {
       SoundButton(
         text: '地震速報(注意)',
         subtitle: '地震速報 所在地預估震度 2 以上',
-        soundPath: 'eq.wav',
+        soundPath: 'eew.wav',
         colors: const [Color(0x33FF0000), Color(0xFFFF0000)],
         playSound: playSound,
       ),
@@ -41,7 +41,7 @@ class NotifyPage extends StatelessWidget {
       SoundButton(
         text: '震度速報',
         subtitle: 'TREM觀測網 所在地實測震度 1 以上',
-        soundPath: 'eq.wav',
+        soundPath: 'int_report.wav',
         colors: const [Color(0x33FFC901), Color(0xFFFFC901)],
         playSound: playSound,
       ),
