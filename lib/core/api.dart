@@ -5,8 +5,8 @@ import 'package:dpip/model/earthquake_report.dart';
 import 'package:dpip/model/eew.dart';
 import 'package:dpip/model/partial_earthquake_report.dart';
 import 'package:dpip/model/weather_realtime.dart';
-import 'package:dpip/model/rts.dart';
-import 'package:dpip/model/station.dart';
+// import 'package:dpip/model/rts.dart';
+// import 'package:dpip/model/station.dart';
 import 'package:http/http.dart' as http;
 
 enum EewSource {
@@ -36,8 +36,7 @@ class ExpTechApi {
   ExpTechApi({this.apikey});
 
   Future<List<PartialEarthquakeReport>> getReportList({int limit = 20}) async {
-    final response =
-        await http.get(Uri.parse('https://api-${randomNum(2)}.exptech.dev/api/v2/eq/report?limit=$limit'));
+    final response = await http.get(Uri.parse('https://api-${randomNum(2)}.exptech.dev/api/v2/eq/report?limit=$limit'));
 
     if (response.statusCode == 200) {
       return (jsonDecode(response.body) as List<dynamic>).map((e) => PartialEarthquakeReport.fromJson(e)).toList();
@@ -97,7 +96,7 @@ class ExpTechApi {
     }
   }
 
-  Future<Map<String, Station>> getStations() async {
+  /*Future<Map<String, Station>> getStations() async {
     final response =
         await http.get(Uri.parse('https://raw.githubusercontent.com/exptechtw/api/master/resource/station.json'));
 
@@ -118,7 +117,7 @@ class ExpTechApi {
     } else {
       throw Exception('The server returned a status code of ${response.statusCode}');
     }
-  }
+  }*/
 
   Future<List<Eew>> getEew(EewSource source) async {
     final response =
